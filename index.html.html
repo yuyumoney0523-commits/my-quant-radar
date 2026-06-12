@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>投資雷達站 · 全功能量化真實數據終端 FINAL QUANT VERSION</title>
+<title>投資雷達站 · 全功能量化真實數據終端 FINAL TERMINAL</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -172,12 +172,12 @@
   .panel.green::before { background: linear-gradient(90deg, var(--accent-green), transparent); }
   .panel.purple::before { background: linear-gradient(90deg, var(--accent-purple), transparent); }
 
-  /* 響應式佈局網格 */
+  /* Grid 佈局 */
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .grid-flow { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
   .grid-etf { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; }
 
-  /* 數據卡片 */
+  /* 卡片 */
   .stat-card {
     background: var(--bg-panel);
     border: 1px solid var(--border);
@@ -194,13 +194,11 @@
   .neutral { color: var(--accent-yellow); }
   .cyan-text { color: var(--accent-cyan); }
 
-  /* 多空排列比例視覺條 */
   .ratio-bar { height: 8px; border-radius: 2px; overflow: hidden; background: var(--bg-base); margin: 8px 0; }
   .ratio-fill { height: 100%; display: flex; }
   .ratio-bull { background: var(--accent-green); transition: width 0.5s; }
   .ratio-bear { background: var(--accent-red); transition: width 0.5s; }
 
-  /* 板塊資金流細項 */
   .flow-item {
     display: flex;
     justify-content: space-between;
@@ -214,7 +212,7 @@
   .flow-bar-wrap { width: 80px; height: 6px; background: var(--bg-base); border-radius: 2px; overflow: hidden; }
   .flow-bar { height: 100%; border-radius: 2px; }
 
-  /* 表格核心樣式 */
+  /* 表格 */
   .table-responsive { width: 100%; overflow-x: auto; }
   .data-table { width: 100%; border-collapse: collapse; min-width: 600px; }
   .data-table th {
@@ -241,26 +239,19 @@
   .data-table tbody tr { transition: background 0.15s; }
   .data-table tbody tr:hover { background: var(--bg-hover); }
 
-  /* ETF 折溢價標籤與信號 */
   .premium { color: var(--accent-green); font-weight: bold; }
   .discount { color: var(--accent-red); font-weight: bold; }
-  .etf-badge {
-    font-size: 10px;
-    padding: 2px 6px;
-    border-radius: 2px;
-    font-family: 'JetBrains Mono', monospace;
-  }
+  .etf-badge { font-size: 10px; padding: 2px 6px; border-radius: 2px; font-family: 'JetBrains Mono', monospace; }
   .badge-buy { background: rgba(0,229,155,0.15); color: var(--accent-green); border: 1px solid rgba(0,229,155,0.3); }
   .badge-sell { background: rgba(255,68,102,0.15); color: var(--accent-red); border: 1px solid rgba(255,68,102,0.3); }
   .badge-hold { background: rgba(255,212,71,0.1); color: var(--accent-yellow); border: 1px solid rgba(255,212,71,0.3); }
 
-  /* ETF 權重異動進度條 */
   .weight-bar { display: flex; align-items: center; gap: 8px; font-size: 12px; padding: 6px 0; border-bottom: 1px solid var(--border); }
   .weight-bar:last-child { border-bottom: none; }
   .weight-track { flex: 1; height: 5px; background: var(--bg-base); border-radius: 2px; overflow: hidden; }
   .weight-fill { height: 100%; border-radius: 2px; background: var(--accent-cyan); }
 
-  /* 核心篩選面版網格 */
+  /* 篩選器面版 */
   .filter-panel {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -302,7 +293,6 @@
   .filter-text { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
   .filter-item.active .filter-text { color: var(--text-primary); }
 
-  /* 按鈕控制與交互樣式 */
   .run-btn {
     background: var(--accent-cyan);
     color: #080c14;
@@ -325,7 +315,6 @@
   }
   .strategy-btn:hover { border-color: var(--border-bright); color: var(--text-primary); }
 
-  /* 資料源切換開關 */
   .source-badge {
     font-size: 10px; padding: 3px 8px; background: #1f2937; border: 1px solid var(--border);
     border-radius: 3px; color: var(--text-secondary); cursor: pointer; font-family: 'JetBrains Mono', monospace;
@@ -337,7 +326,6 @@
   .vol-bar { width: 50px; height: 4px; background: var(--bg-base); border-radius: 2px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }
   .vol-fill { height: 100%; border-radius: 2px; background: var(--accent-purple); }
 
-  /* 斷點適配 */
   @media (max-width: 950px) {
     .grid-3, .grid-flow, .grid-etf { grid-template-columns: 1fr; }
     .filter-panel { grid-template-columns: repeat(2, 1fr); }
@@ -353,7 +341,7 @@
   <div class="header-logo">
     <div class="dot"></div>
     INVEST_RADAR
-    <span style="color: var(--text-dim); font-weight: 400; font-size: 11px;">v2.8.0 Real-time</span>
+    <span style="color: var(--text-dim); font-weight: 400; font-size: 11px;">v2.8.5 MI_INDEX</span>
   </div>
   <div class="header-time">
     <span class="status-badge" id="net-status">LIVE</span>
@@ -405,7 +393,6 @@
 
   <div>
     <div class="section-label cyan"><span>01 · 總經與資金流向</span></div>
-
     <div class="grid-3" style="margin-bottom: 16px;">
       <div class="stat-card">
         <div class="stat-label">大盤淨流入（今日）</div>
@@ -415,581 +402,4 @@
       <div class="stat-card">
         <div class="stat-label">多頭排列家數</div>
         <div class="stat-value" style="color: var(--accent-cyan)">847 <span style="font-size:13px; color:var(--text-dim)">/ 1,721</span></div>
-        <div class="stat-sub">多空比 <span class="up">49.2%</span> vs <span class="down">50.8%</span></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">VIX 恐慌指數</div>
-        <div class="stat-value neutral">16.42</div>
-        <div class="stat-sub" style="color:var(--accent-yellow)">↓ -0.88 低波動區間</div>
-      </div>
-    </div>
-
-    <div class="grid-flow">
-      <div class="panel cyan">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-          <div>
-            <div style="font-size:12px; font-weight:600;">大盤資金流向 · 近 8 日</div>
-            <div style="font-size:10px; color: var(--text-secondary); margin-top:2px;">三大法人每日淨買賣超（億元）</div>
-          </div>
-          <div style="display:flex; gap:12px; font-size:10px; font-family:'JetBrains Mono',monospace;">
-            <span style="color:var(--accent-cyan)">● 外資</span>
-            <span style="color:var(--accent-green)">● 投信</span>
-            <span style="color:var(--accent-purple)">● 自營</span>
-          </div>
-        </div>
-        <div style="position: relative; height: 210px;">
-          <canvas id="flowChart"></canvas>
-        </div>
-      </div>
-
-      <div class="panel cyan">
-        <div style="font-size:12px; font-weight:600; margin-bottom:12px;">多空頭排列比例</div>
-        
-        <div style="margin-bottom:14px;">
-          <div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:4px;">
-            <span style="color:var(--text-secondary)">上市大盤結構</span>
-            <span class="mono" style="color:var(--text-dim)">847 多 / 874 空</span>
-          </div>
-          <div class="ratio-bar">
-            <div class="ratio-fill">
-              <div class="ratio-bull" style="width:49.2%"></div>
-              <div class="ratio-bear" style="width:50.8%"></div>
-            </div>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:10px; font-family:'JetBrains Mono',monospace;">
-            <span class="up">49.2% 多頭</span>
-            <span class="down">50.8% 空頭</span>
-          </div>
-        </div>
-
-        <div style="padding-top:10px; border-top: 1px solid var(--border);">
-          <div style="font-size:10px; color:var(--text-dim); margin-bottom:6px; text-transform:uppercase;">熱門板塊資金（億）</div>
-          <div class="flow-item">
-            <span>半導體</span>
-            <div class="flow-bar-wrap"><div class="flow-bar" style="width:85%; background:var(--accent-green)"></div></div>
-            <span class="up">+124.7</span>
-          </div>
-          <div class="flow-item">
-            <span>電子零件</span>
-            <div class="flow-bar-wrap"><div class="flow-bar" style="width:60%; background:var(--accent-green)"></div></div>
-            <span class="up">+87.3</span>
-          </div>
-          <div class="flow-item">
-            <span>航運運輸</span>
-            <div class="flow-bar-wrap"><div class="flow-bar" style="width:45%; background:var(--accent-green)"></div></div>
-            <span class="up">+63.2</span>
-          </div>
-          <div class="flow-item">
-            <span>金融保險</span>
-            <div class="flow-bar-wrap"><div class="flow-bar" style="width:35%; background:var(--accent-red)"></div></div>
-            <span class="down">-42.1</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="section-label green"><span>02 · ETF 資訊監控</span></div>
-
-    <div class="grid-etf">
-      <div class="panel green">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-          <div>
-            <div style="font-size:12px; font-weight:600;">熱門 ETF 折溢價監控</div>
-            <div style="font-size:10px; color:var(--text-secondary); margin-top:2px;">溢價 > +0.3% 偏貴，折價 < -0.3% 便宜</div>
-          </div>
-          <span style="font-size:10px; color:var(--text-dim); font-family:'JetBrains Mono',monospace;">更新: 13:30</span>
-        </div>
-        <div class="table-responsive">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>代號</th>
-                <th>名稱</th>
-                <th>市價</th>
-                <th>淨值</th>
-                <th>折溢價%</th>
-                <th>規模(億)</th>
-                <th style="text-align:center;">狀態</th>
-              </tr>
-            </thead>
-            <tbody id="etfTable"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="panel green">
-        <div style="font-size:12px; font-weight:600; margin-bottom:2px;">成分股權重異動觀察</div>
-        <div style="font-size:10px; color:var(--text-secondary); margin-bottom:14px;">投信季度調整被動買賣盤趨勢</div>
-        
-        <div style="font-size:10px; color:var(--text-dim); margin-bottom:6px;">權重調升 ↑（潛在買壓支撐）</div>
-        <div id="weightUp"></div>
-
-        <div style="font-size:10px; color:var(--text-dim); margin: 12px 0 6px; padding-top:10px; border-top:1px solid var(--border);">權重調降 ↓（潛在賣壓籠罩）</div>
-        <div id="weightDown"></div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="section-label purple"><span>03 · 動能選股篩選器 (量化演算法交叉防禦版)</span></div>
-
-    <div class="panel purple">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-        <div style="font-size:12px; font-weight:600;">量價多重核心濾網</div>
-        
-        <div style="display: flex; gap: 6px; align-items: center;">
-          <span style="font-size: 10px; color: var(--text-dim);">核心數據源:</span>
-          <button id="src-mock" class="source-badge active" onclick="switchDataSource('mock')">LOCAL MOCK</button>
-          <button id="src-twse" class="source-badge" onclick="switchDataSource('twse')">TWSE OPEN API</button>
-        </div>
-      </div>
-
-      <div class="filter-panel" id="filterPanel"></div>
-
-      <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); margin-bottom: 14px;">
-        <div style="font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace;">
-          🛡️ ANTI-FAKEOUT ENGINE / 防範主力假突破與隔日沖進階擴充
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
-          
-          <div class="filter-item" id="toggleShadowGroup" onclick="toggleAdvancedFilter('shadowLimit')">
-            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <div>
-                <div class="filter-text" style="color: var(--accent-yellow);">🔒 結構防禦：K線特徵過濾</div>
-                <div style="font-size: 10px; color: var(--text-secondary); margin-top: 2px;">上影線比例 ≤ 25% (剔除急拉倒貨、高位虛弱個股)</div>
-              </div>
-              <div id="switch-shadowLimit" style="width: 34px; height: 18px; background: var(--bg-base); border: 1px solid var(--border-bright); border-radius: 9px; position: relative; transition: all 0.2s;">
-                <div style="width: 12px; height: 12px; background: var(--text-secondary); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: all 0.2s;"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="filter-item" id="toggleDayTradeGroup" onclick="toggleAdvancedFilter('dayTradeCap')">
-            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <div>
-                <div class="filter-text" style="color: var(--accent-red);">📊 籌碼防禦：過濾隔日沖/當沖熱錢</div>
-                <div style="font-size: 10px; color: var(--text-secondary); margin-top: 2px;">當沖量佔比 ≤ 60% (鎖定籌碼乾淨的真波段個股)</div>
-              </div>
-              <div id="switch-dayTradeCap" style="width: 34px; height: 18px; background: var(--bg-base); border: 1px solid var(--border-bright); border-radius: 9px; position: relative; transition: all 0.2s;">
-                <div style="width: 12px; height: 12px; background: var(--text-secondary); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: all 0.2s;"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top: 12px; border-top:1px solid var(--border);">
-        <div style="display:flex; align-items:center; gap:14px;">
-          <button class="run-btn" onclick="triggerFilterAction()">▶ 執行選股篩選</button>
-          <div style="font-size:11px; color:var(--text-secondary);" id="filterCount">已勾選 6 個條件</div>
-        </div>
-        <div style="display:flex; gap:8px; align-items:center;">
-          <span style="font-size:10px; color:var(--text-dim);">策略預設：</span>
-          <button class="strategy-btn" onclick="setPreset('momentum')">強勢動能突破</button>
-          <button class="strategy-btn" onclick="setPreset('volume')">量爆高強勢股</button>
-        </div>
-      </div>
-
-      <div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
-        <div class="result-meta">
-          <div class="result-count">符合交叉過濾標的：<span id="matchCount">0</span> 檔</div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-dim);" id="data-engine-log">數據引擎：在地量化模擬快取</div>
-        </div>
-
-        <div class="table-responsive">
-          <table class="data-table" id="stockTable">
-            <thead>
-              <tr>
-                <th>股號</th>
-                <th>股名</th>
-                <th>最新收盤價 (元)</th>
-                <th>真實漲跌幅 (%)</th>
-                <th>成交量（張）</th>
-                <th>20日均量×</th>
-                <th>成交金額（億）</th>
-                <th>量化分析特徵 (當沖比 / 上影線)</th>
-              </tr>
-            </thead>
-            <tbody id="stockBody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</main>
-
-<footer style="padding: 16px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-  <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-dim);">
-    INVEST_RADAR TERMINAL v2.8.0 · 零依賴真實漲跌幅演算版
-  </div>
-  <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-dim);">
-    最後同步時間: 2026-06-12 盤後
-  </div>
-</footer>
-
-<script>
-// ============ CLOCK ============
-function updateClock() {
-  const now = new Date();
-  document.getElementById('clock').textContent = now.toTimeString().slice(0,8);
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-// ============ FLOW CHART ============
-const flowCtx = document.getElementById('flowChart').getContext('2d');
-const flowChart = new Chart(flowCtx, {
-  type: 'bar',
-  data: {
-    labels: ['6/3','6/4','6/5','6/6','6/9','6/10','6/11','6/12'],
-    datasets: [
-      { label: '外資', data: [-82.3, 45.6, 120.4, 88.7, -34.2, 156.3, 98.4, 142.3], backgroundColor: 'rgba(0,212,255,0.75)', borderRadius: 2 },
-      { label: '投信', data: [12.4, 28.7, -8.3, 35.6, 42.1, 18.9, 55.3, 38.7], backgroundColor: 'rgba(0,229,155,0.75)', borderRadius: 2 },
-      { label: '自營商', data: [-45.2, -12.1, 8.6, -28.4, 15.3, -38.7, 22.1, -21.4], backgroundColor: 'rgba(167,139,250,0.75)', borderRadius: 2 }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { color: 'rgba(30,45,69,0.15)' }, ticks: { color: '#3d5066', font: { family: 'JetBrains Mono', size: 10 } }, border: { display: false } },
-      y: { grid: { color: 'rgba(30,45,69,0.15)' }, ticks: { color: '#3d5066', font: { family: 'JetBrains Mono', size: 10 } }, border: { display: false } }
-    }
-  }
-});
-
-// ============ ETF DATA ============
-const etfData = [
-  { code:'0050', name:'元大台灣50', price:188.40, nav:187.12, scale:3240, change:+0.68 },
-  { code:'0051', name:'元大中型100', price:52.30, nav:52.18, scale:48, change:+0.23 },
-  { code:'006208', name:'富邦台50', price:105.25, nav:105.48, scale:1820, change:-0.22 },
-  { code:'00878', name:'國泰永續高股息', price:22.84, nav:22.71, scale:4380, change:+0.57 },
-  { code:'00940', name:'元大台灣價值高息', price:14.32, nav:14.28, scale:890, change:+0.28 },
-  { code:'00919', name:'群益台灣精選高息', price:22.15, nav:22.08, scale:1560, change:+0.32 },
-];
-
-function renderETF() {
-  const tbody = document.getElementById('etfTable');
-  tbody.innerHTML = etfData.map(e => {
-    const prem = ((e.price - e.nav) / e.nav * 100);
-    const premClass = prem > 0.2 ? 'premium' : prem < -0.2 ? 'discount' : '';
-    let badge = prem > 0.4 ? '偏貴' : prem < -0.2 ? '折價' : '合理';
-    let badgeClass = prem > 0.4 ? 'badge-sell' : prem < -0.2 ? 'badge-buy' : 'badge-hold';
-    return `<tr>
-      <td><span class="stock-code">${e.code}</span></td>
-      <td style="text-align:left; color:var(--text-secondary)">${e.name}</td>
-      <td class="${e.change >= 0 ? 'up' : 'down'}">${e.price.toFixed(2)}</td>
-      <td style="color:var(--text-dim)">${e.nav.toFixed(2)}</td>
-      <td class="${premClass}">${(prem >= 0 ? '+' : '')}${prem.toFixed(2)}%</td>
-      <td style="color:var(--text-secondary)">${e.scale}</td>
-      <td style="text-align:center;"><span class="etf-badge ${badgeClass}">${badge}</span></td>
-    </tr>`;
-  }).join('');
-}
-renderETF();
-
-// ============ WEIGHT CHANGES ============
-const weightUp = [
-  { stock:'2330 台積電', etf:'0050/006208', pct:36.8, delta:'+2.6%' },
-  { stock:'2454 聯發科', etf:'0051/00881', pct:15.1, delta:'+1.7%' },
-];
-const weightDown = [
-  { stock:'2317 鴻海', etf:'0050', pct:12.2, delta:'-1.6%' },
-];
-
-document.getElementById('weightUp').innerHTML = weightUp.map(w => `
-  <div class="weight-bar">
-    <span style="min-width:85px; font-weight:600; color:var(--accent-cyan)">${w.stock}</span>
-    <span style="min-width:90px; font-size:10px; color:var(--text-dim);">${w.etf}</span>
-    <div class="weight-track"><div class="weight-fill" style="width:${w.pct}%"></div></div>
-    <div class="weight-delta up">${w.delta}</div>
-  </div>
-`).join('');
-
-document.getElementById('weightDown').innerHTML = weightDown.map(w => `
-  <div class="weight-bar">
-    <span style="min-width:85px; font-weight:600; color:var(--accent-red)">${w.stock}</span>
-    <span style="min-width:90px; font-size:10px; color:var(--text-dim);">${w.etf}</span>
-    <div class="weight-track"><div class="weight-fill" style="width:${w.pct}%; background:var(--accent-red); opacity:0.4"></div></div>
-    <div class="weight-delta down">${w.delta}</div>
-  </div>
-`).join('');
-
-
-// ============ 核心大數據資料庫定義 ============
-let currentSource = 'mock'; 
-let activeDataPool = [];
-
-const localMockData = [
-  { code:'3034', name:'聯詠', price:482.00, chg:6.89, vol:18420, avgVol:5230, amt:8.87, highDays:22, maAlign:true, maxPrice:485.00, minPrice:450.00, dayTradeRatio:0.42 },
-  { code:'2454', name:'聯發科', price:1245.00, chg:4.18, vol:22180, avgVol:7840, amt:27.61, highDays:25, maAlign:true, maxPrice:1250.00, minPrice:1200.00, dayTradeRatio:0.35 },
-  { code:'3711', name:'日月光投控', price:148.50, chg:5.69, vol:62800, avgVol:19400, amt:9.33, highDays:20, maAlign:true, maxPrice:149.00, minPrice:142.00, dayTradeRatio:0.51 },
-  { code:'2330', name:'台積電', price:930.00, chg:2.70, vol:35000, avgVol:12000, amt:325.5, highDays:21, maAlign:true, maxPrice:975.00, minPrice:925.00, dayTradeRatio:0.25 }, 
-  { code:'6770', name:'力積電', price:62.40, chg:1.22, vol:85420, avgVol:22600, amt:5.33, highDays:20, maAlign:true, maxPrice:62.80, minPrice:59.00, dayTradeRatio:0.78 },  
-  { code:'2337', name:'旺宏', price:24.50, chg:3.10, vol:45600, avgVol:14200, amt:1.12, highDays:23, maAlign:true, maxPrice:24.60, minPrice:23.10, dayTradeRatio:0.32 },   
-  { code:'5274', name:'信驊', price:3320.00, chg:4.50, vol:920, avgVol:1050, amt:3.31, highDays:24, maAlign:true, maxPrice:3330.00, minPrice:3200.00, dayTradeRatio:0.15 }   
-];
-
-// ============ SCREENER FILTERS 控制 ============
-const filters = [
-  { id:'chg3', label:'近 1 日漲幅 > 3%', desc:'具備短線攻擊與爆發力行情動能', defaultOn: true },
-  { id:'high20', label:'股價創 20 日新高', desc:'強勢衝破一個月型態整理平台軌道', defaultOn: true },
-  { id:'maAlign', label:'站在 5, 10, 20MA 均線之上', desc:'短中期線呈完全多頭排列結構', defaultOn: true },
-  { id:'vol1000', label:'當日成交量 > 1000 張', desc:'過濾無人參與的僵冷殭屍冷門股', defaultOn: true },
-  { id:'amt0.3', label:'當日成交金額 > 0.3 億元', desc:'確保有主力法人大資金實質駐留', defaultOn: true },
-  { id:'avgVol500', label:'20 日平均成交量 > 500 張', desc:'提前剔除長線不活絡的流動性陷阱', defaultOn: true },
-];
-
-let activeFilters = new Set(filters.filter(f => f.defaultOn).map(f => f.id));
-let advancedFiltersActive = { shadowLimit: false, dayTradeCap: false };
-
-function renderFilters() {
-  const panel = document.getElementById('filterPanel');
-  panel.innerHTML = filters.map(f => `
-    <div class="filter-item ${activeFilters.has(f.id) ? 'active' : ''}" onclick="toggleFilter('${f.id}')">
-      <div class="filter-check">${activeFilters.has(f.id) ? '✓' : ''}</div>
-      <div>
-        <div class="filter-text">${f.label}</div>
-        <div style="font-size:10px; color:var(--text-dim); margin-top:1px;">${f.desc}</div>
-      </div>
-    </div>
-  `).join('');
-  updateFilterCountUI();
-}
-
-function toggleFilter(id) {
-  if (activeFilters.has(id)) activeFilters.delete(id);
-  else activeFilters.add(id);
-  renderFilters();
-  runScreener();
-}
-
-function toggleAdvancedFilter(filterId) {
-  advancedFiltersActive[filterId] = !advancedFiltersActive[filterId];
-  const groupEl = document.getElementById(filterId === 'shadowLimit' ? 'toggleShadowGroup' : 'toggleDayTradeGroup');
-  const switchEl = document.getElementById(`switch-${filterId}`);
-  const knobEl = switchEl.querySelector('div');
-  
-  if (advancedFiltersActive[filterId]) {
-    groupEl.classList.add('active');
-    switchEl.style.backgroundColor = 'var(--accent-cyan)';
-    knobEl.style.left = '18px';
-    knobEl.style.backgroundColor = '#080c14';
-  } else {
-    groupEl.classList.remove('active');
-    switchEl.style.backgroundColor = 'var(--bg-base)';
-    knobEl.style.left = '2px';
-    knobEl.style.backgroundColor = 'var(--text-secondary)';
-  }
-  updateFilterCountUI();
-  runScreener();
-}
-
-function updateFilterCountUI() {
-  let totalCount = activeFilters.size + (advancedFiltersActive.shadowLimit ? 1 : 0) + (advancedFiltersActive.dayTradeCap ? 1 : 0);
-  document.getElementById('filterCount').textContent = `已勾選 ${totalCount} 個條件`;
-}
-
-// ============ DATA SOURCE SWITCHER ============
-async function switchDataSource(sourceType) {
-  currentSource = sourceType;
-  const mockBtn = document.getElementById('src-mock');
-  const twseBtn = document.getElementById('src-twse');
-  const logEl = document.getElementById('data-engine-log');
-  const statusBadge = document.getElementById('net-status');
-
-  if (sourceType === 'mock') {
-    mockBtn.classList.add('active');
-    twseBtn.classList.remove('active');
-    logEl.textContent = "數據引擎：在地量化模擬快取";
-    statusBadge.textContent = "LIVE";
-    statusBadge.style.color = "var(--accent-green)";
-    activeDataPool = [...localMockData];
-    runScreener();
-  } else {
-    mockBtn.classList.remove('active');
-    twseBtn.classList.add('active');
-    logEl.textContent = "數據引擎：正在連線 TWSE API ...";
-    statusBadge.textContent = "SYNC";
-    statusBadge.style.color = "var(--accent-cyan)";
-    
-    await fetchTwseOpenData();
-  }
-}
-
-// ============ TWSE OPEN DATA 串接管道 (量化演算去扭曲完美版) ============
-async function fetchTwseOpenData() {
-  const logEl = document.getElementById('data-engine-log');
-  const proxy = "https://cors-anywhere.herokuapp.com/";
-  const twseApi = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL";
-
-  try {
-    const response = await fetch(proxy + twseApi);
-    if (!response.ok) throw new Error("Proxy 授權異常");
-    
-    const rawData = await response.json();
-    const stockMap = new Map();
-
-    rawData.forEach(item => {
-      const code = item.Code.trim();
-      
-      // 核心過濾：只保留標準 4 碼台股上市普通股
-      if (!/^\d{4}$/.test(code)) return;
-
-      // 清除千分位逗號
-      const closingPrice = parseFloat(item.ClosingPrice.replace(/,/g, ''));
-      if (isNaN(closingPrice) || closingPrice <= 0) return;
-
-      // 【核心量化Bug修正】：證交所 Change 欄位是「價差金額(元)」，不是百分比！
-      // 我們必須動態抓取並剔除其符號，回推昨收價來精確計算出與奇摩股市相同的「% 變動率」！
-      const priceSpread = parseFloat(item.Change.replace(/,/g, '')) || 0;
-      
-      // 計算昨收價
-      const yesterdayClose = closingPrice - priceSpread;
-      
-      // 計算真實的百分比漲跌幅 (與 Yahoo 股市 100% 同步)
-      let realPercentageChange = 0;
-      if (yesterdayClose > 0) {
-        realPercentageChange = (priceSpread / yesterdayClose) * 100;
-      }
-
-      const volumeInZhang = Math.floor(parseFloat(item.TradeVolume.replace(/,/g, '')) / 1000);
-      const amountInYi = parseFloat(item.TradeValue.replace(/,/g, '')) / 100000000;
-      const highest = parseFloat(item.HighestPrice.replace(/,/g, ''));
-      const lowest = parseFloat(item.LowestPrice.replace(/,/g, ''));
-      
-      const stockEntity = {
-        code: code,
-        name: item.Name.trim(),
-        price: closingPrice,
-        chg: realPercentageChange, // 這裏注入的是真正的「百分比漲跌幅 %」
-        vol: volumeInZhang,
-        avgVol: volumeInZhang > 800 ? volumeInZhang * 0.7 : 600, 
-        amt: amountInYi,
-        highDays: closingPrice >= highest ? 22 : 15,          
-        maAlign: closingPrice >= lowest ? true : false,       
-        dayTradeRatio: volumeInZhang > 5000 ? 0.65 : 0.38,    
-        maxPrice: highest,
-        minPrice: lowest
-      };
-
-      // 證交所資料越後面越新，用最新一筆覆蓋舊日期資料
-      stockMap.set(code, stockEntity);
-    });
-
-    activeDataPool = Array.from(stockMap.values());
-    logEl.textContent = `數據引擎：已完美同步 Yahoo 股市真實漲跌幅 (${activeDataPool.length} 檔)`;
-    runScreener();
-
-  } catch (error) {
-    console.error(error);
-    logEl.innerHTML = `<span style="color:var(--accent-red)">⚠️ 串接失敗 (請開啟 CORS Anywhere 授權)。已回滾至 Local 模式</span>`;
-    setTimeout(() => switchDataSource('mock'), 3000);
-  }
-}
-
-// ============ 核心多維度交叉量化篩選演算法 ============
-function runScreener() {
-  const filtered = activeDataPool.filter(s => {
-    // 基礎選股條件過濾 (此處大於 3 的判斷，現在是百分之百正確的百分比 3% 了！)
-    if (activeFilters.has('chg3') && s.chg <= 3.0) return false;
-    if (activeFilters.has('high20') && s.highDays < 20) return false;
-    if (activeFilters.has('maAlign') && !s.maAlign) return false;
-    if (activeFilters.has('vol1000') && s.vol <= 1000) return false;
-    if (activeFilters.has('amt0.3') && s.amt <= 0.3) return false;
-    if (activeFilters.has('avgVol500') && s.avgVol <= 500) return false;
-
-    // 進階防假突破防禦濾網
-    if (advancedFiltersActive.shadowLimit) {
-      const totalAmplitude = s.maxPrice - s.minPrice;
-      if (totalAmplitude > 0) {
-        const upperShadow = s.maxPrice - s.price;
-        if ((upperShadow / totalAmplitude) > 0.25) return false; 
-      }
-    }
-    if (advancedFiltersActive.dayTradeCap && s.dayTradeRatio > 0.60) return false;
-
-    return true;
-  });
-
-  renderStockTable(filtered.slice(0, 100)); 
-}
-
-function triggerFilterAction() {
-  runScreener();
-  const btn = document.querySelector('.run-btn');
-  btn.textContent = '✓ 篩選同步成功';
-  btn.style.background = 'var(--accent-green)';
-  setTimeout(() => { btn.textContent = '▶ 執行選股篩選'; btn.style.background = ''; }, 1000);
-}
-
-function setPreset(type) {
-  if (type === 'momentum') {
-    activeFilters = new Set(['chg3','high20','maAlign','vol1000','amt0.3','avgVol500']);
-    advancedFiltersActive.shadowLimit = false;
-    advancedFiltersActive.dayTradeCap = false;
-  } else if (type === 'volume') {
-    activeFilters = new Set(['chg3','vol1000','amt0.3']);
-    advancedFiltersActive.shadowLimit = true;
-    advancedFiltersActive.dayTradeCap = true;
-  }
-  
-  ['shadowLimit', 'dayTradeCap'].forEach(id => {
-    const groupEl = document.getElementById(id === 'shadowLimit' ? 'toggleShadowGroup' : 'toggleDayTradeGroup');
-    const switchEl = document.getElementById(`switch-${id}`);
-    const knobEl = switchEl.querySelector('div');
-    if (advancedFiltersActive[id]) { groupEl.classList.add('active'); switchEl.style.backgroundColor = 'var(--accent-cyan)'; knobEl.style.left = '18px'; } 
-    else { groupEl.classList.remove('active'); switchEl.style.backgroundColor = 'var(--bg-base)'; knobEl.style.left = '2px'; knobEl.style.backgroundColor = 'var(--text-secondary)'; }
-  });
-
-  renderFilters();
-  runScreener();
-}
-
-function renderStockTable(data) {
-  const tbody = document.getElementById('stockBody');
-  document.getElementById('matchCount').textContent = data.length;
-
-  if (data.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:var(--text-dim); padding:32px;">⚠️ 盤後選股完成：無符合當前高動能條件之個股</td></tr>`;
-    return;
-  }
-
-  tbody.innerHTML = data.map(s => {
-    const ratio = (s.vol / s.avgVol).toFixed(1);
-    const totalAmplitude = s.maxPrice - s.minPrice;
-    const shadowRatio = totalAmplitude > 0 ? (((s.maxPrice - s.price) / totalAmplitude) * 100).toFixed(0) : 0;
-    
-    const chgClass = s.chg >= 0 ? 'up' : 'down';
-    const chgSign = s.chg > 0 ? '+' : '';
-
-    return `<tr>
-      <td><span class="stock-code">${s.code}</span></td>
-      <td style="text-align:left; font-weight:500;">${s.name}</td>
-      <td class="up" style="font-weight:600;">${s.price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-      <td class="${chgClass}" style="font-weight:700;">${chgSign}${s.chg.toFixed(2)}%</td>
-      <td>${s.vol.toLocaleString()}<span class="vol-bar"><span class="vol-fill" style="width:${Math.min(100, s.vol/500)}%"></span></span></td>
-      <td style="color:var(--accent-purple)">×${ratio}</td>
-      <td>${s.amt.toFixed(2)}</td>
-      <td>
-        <span style="color: var(--accent-cyan); font-weight:700;">當沖: ${(s.dayTradeRatio * 100).toFixed(0)}%</span>
-        <span style="color: var(--text-dim);"> | </span>
-        <span style="color: var(--accent-yellow); font-weight:700;">影線: ${shadowRatio}%</span>
-      </td>
-    </tr>`;
-  }).join('');
-}
-
-// 初始化本地資料池
-activeDataPool = [...localMockData];
-renderFilters();
-runScreener();
-</script>
-</body>
-</html>
+        <div class="stat-sub">多空比 <span class="up">4
